@@ -1,0 +1,219 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+header {
+  padding-top: 0.7em;
+  padding-bottom: 0.9em;
+  padding-left: 1em;
+  padding-right: 1em;
+  background: rgb(20, 20, 20);
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  background: rgb(245, 245, 245);
+  width: 45%;
+  z-index: 2;
+  text-transform: uppercase;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 8em;
+}
+nav ul a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.3rem;
+  padding: 0.75em 2em;
+  display: block;
+}
+nav ul a:hover {
+  background: rgb(200, 200, 200);
+}
+nav svg.close-nav {
+  width: 3em;
+  float: right;
+  margin: 2.5em 2.3em;
+}
+nav svg.close-nav g.circle {
+  stroke: none;
+  fill: rgb(50, 50, 50);
+}
+nav svg.close-nav g.x {
+  stroke: rgb(200, 200, 200);
+  fill: rgb(200, 200, 200);
+}
+nav svg.close-nav g.x.round {
+  stroke: none;
+}
+nav svg.close-nav:hover {
+  cursor: pointer;
+}
+
+nav.open-nav {
+  transform: translateX(0);
+}
+
+svg.logo {
+  width: 9.5em;
+}
+svg.logo path {
+  fill: rgb(190, 190, 255);
+  stroke: rgb(0, 85, 200);
+}
+svg.logo:hover {
+  cursor: pointer;
+}
+
+svg.ham-nav {
+  width: 2.5em;
+  margin-right: 0.5em;
+}
+svg.ham-nav path {
+  stroke: rgb(215, 190, 190);
+  fill: rgb(215, 190, 190);
+}
+svg.ham-nav g.circles path {
+  stroke: none;
+}
+svg.ham-nav:hover {
+  cursor: pointer;
+}
+
+.content {
+  padding: 0 1.5em;
+}
+
+h1.hero {
+  text-align: center;
+}
+
+section.hero {
+  border-style: groove;
+  padding: 0;
+  margin-bottom: 1em;
+}
+section.hero img {
+  width: 80%;
+  display: block;
+  margin-top: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+}
+section.hero p {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  margin-top: 0.3em;
+  font-size: 1.05rem;
+}
+
+footer {
+  background: rgb(20, 20, 20);
+  text-decoration: none;
+  padding-bottom: 0.7em;
+}
+footer img {
+  float: right;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+}
+footer p {
+  font-size: 0.75rem;
+  color: rgb(200, 200, 200);
+  margin-bottom: 0.7em;
+  margin-left: 0.9em;
+}
+footer a {
+  text-decoration: none;
+  color: rgb(40, 40, 203);
+}
+
+@media screen and (min-width: 680px) {
+  header {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+}
+@media screen and (min-width: 920px) {
+  svg.ham-nav {
+    width: 0;
+    display: none;
+  }
+  nav {
+    transform: translateX(0);
+    position: unset;
+    display: block;
+    width: auto;
+    height: auto;
+    background: none;
+  }
+  nav svg.close-nav {
+    width: 0;
+    display: none;
+  }
+  nav ul {
+    display: flex;
+  }
+  nav ul a {
+    margin-bottom: 0.5em;
+    padding: 0.5em 1.5em;
+    font-size: 1.4rem;
+    color: rgb(200, 200, 200);
+  }
+  nav ul a:hover {
+    text-decoration: underline;
+    background: none;
+  }
+  svg.logo {
+    width: 12em;
+  }
+  section.hero {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 3em;
+    width: 45em;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  section.hero img {
+    width: 15em;
+    margin: 0.5em;
+  }
+  section.hero p {
+    display: block;
+    line-height: 2rem;
+    margin-top: 3em;
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  header .container {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  footer .container {
+    width: 1200px;
+    margin: 0 auto;
+  }
+  section.hero {
+    gap: 0;
+  }
+  svg.logo {
+    width: 15em;
+  }
+}/*# sourceMappingURL=index.css.map */
