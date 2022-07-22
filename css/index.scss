@@ -165,6 +165,33 @@ footer {
     }
 }
 
+.sidebar {
+    margin: 0.3em 1em;
+
+    .side-title {
+        text-align: center;
+        font-size: 1.8rem;
+        margin: 0.5em;
+        color: rgb(0, 85, 150);
+    }
+
+    .side-img {
+        height: 60vh;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.content.about {
+    .title {
+        color: rgb(80, 80, 80);
+    }
+
+    .subtitle {
+        color:rgb(20, 85, 130);
+    }
+}
+
 @media screen and (min-width: 680px) {
     h1.hero {
         font-size: 3.2rem;
@@ -217,7 +244,7 @@ footer {
 
     section.hero {
         display: grid;
-        grid-template-columns: repeat(2, auto); //make 2 columns
+        grid-template-columns: repeat(2, auto);
         gap: 3em;
         width: 45em;
         margin-right: auto;
@@ -233,6 +260,19 @@ footer {
             line-height: 2rem;
             margin-top: 3em;
             font-size: 1.2rem;
+        }
+    }
+
+    .container.about {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 3em;
+        width: 55em;
+        margin: 0 auto;
+
+        .sidebar {
+            position: sticky;
+            top: 5vh;
         }
     }
 }
