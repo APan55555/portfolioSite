@@ -113,6 +113,8 @@ svg.ham-nav {
 }
 
 h1.hero {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 2.3rem;
     text-align: center;
 }
 
@@ -164,6 +166,10 @@ footer {
 }
 
 @media screen and (min-width: 680px) {
+    h1.hero {
+        font-size: 3.2rem;
+    }
+
     header {
         padding-left: 2em;
         padding-right: 2em;
