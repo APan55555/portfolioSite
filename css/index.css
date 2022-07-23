@@ -103,7 +103,8 @@ h1.hero {
 }
 
 section.hero {
-  border-style: groove;
+  border: 3px groove black;
+  border-radius: 5px;
   padding: 0;
   margin-bottom: 1em;
 }
@@ -165,6 +166,56 @@ footer a {
 }
 .content.about .subtitle {
   color: rgb(20, 85, 130);
+}
+
+.sidebar.feed {
+  display: none;
+}
+
+.content.projects {
+  margin-bottom: 2em;
+}
+
+.feed a.project-link {
+  text-decoration: none;
+}
+.feed section.project {
+  border: 2px groove rgb(200, 200, 200);
+  border-radius: 5px;
+}
+.feed section.project img.feed-img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 0.5em;
+  width: 96%;
+  height: auto;
+}
+.feed section.project h3.project-title {
+  text-align: center;
+  color: rgb(20, 85, 130);
+  font-size: 1.7rem;
+  padding: 0;
+  margin: 0.3em 0;
+}
+.feed section.project p.project-description {
+  color: black;
+  line-height: 1.6rem;
+  margin-bottom: 0;
+}
+.feed section.project p.read {
+  text-align: right;
+  color: rgb(0, 85, 150);
+  margin-top: 0;
+}
+.feed section.project:hover {
+  border-style: inset;
+  border-width: 5px;
+  border-left-style: rgb(140, 140, 140);
+  border-top-style: rgb(140, 140, 140);
+  border-right-style: rgb(180, 180, 180);
+  border-bottom-style: rgb(180, 180, 180);
 }
 
 @media screen and (min-width: 680px) {
@@ -235,9 +286,89 @@ footer a {
     margin: 0 auto;
   }
   .container.about .sidebar {
+    float: left;
     position: -webkit-sticky;
     position: sticky;
+    max-height: calc(95vh - 9em);
+    margin-bottom: 2em;
     top: 5vh;
+    width: 25em;
+    overflow-y: auto;
+  }
+  .container.about .content.about {
+    margin-top: 3em;
+  }
+  .container.about .content.about p {
+    line-height: 1.5rem;
+    font-size: 1.2rem;
+  }
+  .container.about .content.about p.about {
+    line-height: 2rem;
+  }
+  .content.projects {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 3em;
+    width: 53em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .content.projects .feed {
+    width: 40em;
+  }
+  .content.projects .sidebar.feed {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 15vh;
+    max-height: calc(95vh - 9em);
+    margin-bottom: 2em;
+    margin: 0;
+    display: initial;
+    width: 10em;
+  }
+  .content.projects .sidebar.feed h3.title {
+    padding: 0;
+    margin: 0;
+    margin-top: -0.5em;
+    color: rgb(100, 100, 100);
+  }
+  .content.projects .sidebar.feed ul.project-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  .content.projects .sidebar.feed ul.project-list a.project-link {
+    display: block;
+    padding: 0.5em 1.5em;
+  }
+  .content.projects .sidebar.feed ul.project-list a.project-link:hover {
+    background: rgb(200, 200, 200);
+  }
+}
+@media screen and (min-width: 1080px) {
+  .content.projects {
+    width: 62em;
+  }
+  .content.projects .feed {
+    width: 50em;
+  }
+  .content.projects .feed section.project {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+  }
+  .content.projects .feed section.project img.feed-img {
+    width: 20em;
+    margin: 1em 0;
+    margin-left: 0.5em;
+  }
+  .content.projects .feed section.project .content h3.project-title {
+    font-size: 1.2rem;
+    text-align: left;
+    margin: 0 1em;
+    margin-top: 0.5em;
+  }
+  .content.projects .sidebar.feed h3.title {
+    margin-top: 0;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -254,5 +385,15 @@ footer a {
   }
   svg.logo {
     width: 15em;
+  }
+  .container.about {
+    width: 70em;
+  }
+  .container.about .content.about p.about {
+    line-height: 2.5rem;
+  }
+  .content.projects {
+    width: 62;
+    gap: 13em;
   }
 }/*# sourceMappingURL=index.css.map */
