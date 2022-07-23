@@ -1,0 +1,92 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  padding-top: 0.7em;
+  padding-bottom: 0.9em;
+  padding-left: 1em;
+  padding-right: 1em;
+  background: rgb(20, 20, 20);
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+svg.logo {
+  width: 9.5em;
+}
+svg.logo path {
+  fill: rgb(190, 190, 255);
+  stroke: rgb(0, 85, 200);
+}
+svg.logo:hover {
+  cursor: pointer;
+}
+
+footer {
+  background: rgb(20, 20, 20);
+  text-decoration: none;
+  padding-bottom: 0.7em;
+}
+footer img {
+  float: right;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+}
+footer p {
+  font-size: 0.75rem;
+  color: rgb(200, 200, 200);
+  margin-bottom: 0.7em;
+  margin-left: 0.9em;
+}
+footer a {
+  text-decoration: none;
+  color: rgb(40, 40, 203);
+}
+
+.body {
+  margin: 0.3em 1em;
+}
+
+h1.hero {
+  color: rgb(80, 80, 80);
+}
+
+h2.subtitle {
+  color: rgb(20, 85, 130);
+  font-size: 1.7rem;
+  margin: 0.5em 0.1em;
+}
+
+h3.heading {
+  color: rgb(30, 30, 30);
+  font-size: 1.25rem;
+  margin: 0 1em;
+}
+
+p.content {
+  color: black;
+  margin: 0.7em 0.3em;
+  line-height: 1.8rem;
+}
+
+.sidebar {
+  display: none;
+}
+
+.yt-vid {
+  aspect-ratio: 560/315;
+  width: 90%;
+  margin: 0.5em 5%;
+}/*# sourceMappingURL=project.css.map */
