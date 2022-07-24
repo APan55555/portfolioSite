@@ -50,9 +50,11 @@
                         Helpful Videos
                     </h2>
 
-                    <iframe class="yt-vid" src="https://www.youtube.com/embed/gXLjWRteuWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="yt-vid" src="https://www.youtube.com/embed/8hrJ4oN1u_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <iframe class="yt-vid" src="https://www.youtube.com/embed/mPGi1IHQxFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="vids">
+                        <iframe class="yt-vid" src="https://www.youtube.com/embed/gXLjWRteuWI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="yt-vid" src="https://www.youtube.com/embed/8hrJ4oN1u_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="yt-vid" src="https://www.youtube.com/embed/mPGi1IHQxFM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
 
                     <h2 class="subtitle" id="vscode">
                         VSCode Setup
@@ -88,7 +90,11 @@
                         the auto complete of just the exclamation mark to the full html structure. To enable it, go to settings and search emmet
                         and check the Emmet: Trigger Expandion on Tab box.
                     </p>
-                    <img src="../images/site/emmetEnable.jpg" alt="enable emmet" style="width: 90%; margin: 0.5em 5%;">
+                    <img src="../images/site/emmetEnable.jpg" alt="enable emmet" 
+                    style="display: block;
+                    width: 90%; 
+                    max-width: 70em;
+                    margin: 0.5em auto;">
 
                     <h2 class="subtitle" id="deploy">
                         Deploying the Site
@@ -101,13 +107,37 @@
                         I started out doing this as a text before moving to a custom domain. Firstly make sure there is an index.html file in the root directory for the home page. Then go to settings 
                         > Pages and configure the source to the root directory of the main branch. After saving, the site was running.
                     </p>
-                    <img src="../images/site/githubPagesSource.jpg" alt="github pages source" style="width: 90%; margin: 0.5em 5%;">
+                    <img src="../images/site/githubPagesSource.jpg" alt="github pages source" 
+                    style="display: block;
+                    width: 90%; 
+                    margin: 0.5em auto;
+                    max-width: 70em;">
 
                     <h3 class="heading" id="custom-domain">
                         Using a Custom Domain
                     </h3>
                     <p class="content">
-                        
+                        After buying a domain on a site like <a href="https://www.godaddy.com">GoDaddy</a>, GitHub Pages must be configured to use it.
+                        GitHub provides <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site">some instruction</a> 
+                        for how to do so. First type the domain name in the custom domain section of GitHub Pages and save it, which will 
+                        create a commit with a CNAME file with the domain name. To later make more pushes to the repo, a pull will first have to be made after this.
+                    </p>
+                    <img src="../images/site/customDomainGit.jpg" alt="custom domain section" 
+                    style="display: block;
+                    width: 90%;
+                    margin: 0.5em auto;
+                    max-width: 70em;">
+                    <p class="content">
+                        After that, the following IP addresses must be added to the DNS manager of the domain in GoDaddy in order for it 
+                        to link with GitHub Pages:
+                    </p>
+                    <p class="code">185.199.108.153
+                        185.199.109.153
+                        185.199.110.153
+                        185.199.111.153
+                    </p>
+                    <p class="content">
+                        With that the site should be deployed although it may take a while to update.
                     </p>
                 </div>
 
@@ -115,30 +145,48 @@
                     <h3 class="side-title">
                         Contents
                     </h3>
-                    <a class="subtitle" href="#helpful-vids">
-                        Helpful Videos
-                    </a>
-                    <a class="subtitle" href="#vscode">
-                        VSCode Setup
-                    </a>
-                    <a class="heading" href="#live-sass">
-                        Live Sass Compiler
-                    </a>
-                    <a href="#live-server" class="heading">
-                        Live Server
-                    </a>
-                    <a href="#emmet" class="heading">
-                        Emmet Tab
-                    </a>
-                    <a href="#deploy" class="subtitle">
-                        Deploying the Site
-                    </a>
-                    <a href="#default-domain" class="heading">
-                        Using Default Domain
-                    </a>
-                    <a href="#custom-domain" class="heading">
-                        Using a Custom Domain
-                    </a>
+                    <ul class="contents">
+                        <li>
+                            <a class="subtitle" href="#helpful-vids">
+                                Helpful Videos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="subtitle" href="#vscode">
+                                VSCode Setup
+                            </a>
+                        </li>
+                        <li>
+                            <a class="heading" href="#live-sass">
+                                Live Sass Compiler
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#live-server" class="heading">
+                                Live Server
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#emmet" class="heading">
+                                Emmet Tab
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#deploy" class="subtitle">
+                                Deploying the Site
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#default-domain" class="heading">
+                                Using Default Domain
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#custom-domain" class="heading">
+                                Using a Custom Domain
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 

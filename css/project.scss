@@ -40,18 +40,20 @@ svg.logo {
 footer {
     background: rgb(20, 20, 20);
     text-decoration: none;
-    padding-bottom: 0.7em;
+    padding: 0.7em 1em;
     img {
         float: right;
         margin-top: 0.5em;
-        margin-right: 0.5em;
+        margin-right: 1em;
+        margin-left: 0.5em;
     }
 
     p {
         font-size: 0.75rem;
         color: rgb(200, 200, 200);
         margin-bottom: 0.7em;
-        margin-left: 0.9em;
+        margin-left: 1em;
+        margin-right: 0.5em;
     }
 
     a {
@@ -86,6 +88,16 @@ p.content {
     line-height: 1.8rem;
 }
 
+p.code {
+    color: black;
+    margin: 0.7em 1em;
+    padding: 0.5em;
+    line-height: 2rem;
+    white-space: pre-line;
+    background: #c8c8c8;
+    border-radius: 5px;
+}
+
 .sidebar {
     display: none;
 }
@@ -93,5 +105,199 @@ p.content {
 .yt-vid {
     aspect-ratio: 560/315;
     width: 90%;
-    margin: 0.5em 5%;
+    margin: 0.3em 5%;
+}
+
+@media screen and (min-width: 680px) {
+    header {
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-top: 1em;
+        padding-bottom: 1.2em;
+    }
+
+    footer {
+        padding: 1em 2em;
+
+        img {
+            margin-top: 0.7em;
+            margin-right: 1.3em;
+        }
+
+        p {
+            margin-left: 1.3em;
+            margin-bottom: 1em;
+        }
+    }
+}
+
+@media screen and (min-width: 920px) {
+    svg.logo {
+        width: 12em;
+    }
+
+    header {
+        padding-left: 2.5em;
+        padding-right: 2.5em;
+    }
+}
+
+@media screen and (min-width: 1080px){
+    .body {
+        width: 60em;
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: 2em;
+        margin: 0 auto;
+
+        .content {
+            width: 45em;
+            margin: 0 0.5em;
+
+            h3.heading {
+                margin-left: 1.3em;
+            }
+        }
+
+        .sidebar {
+            display: initial;
+            position: sticky;
+            top: 10vh;
+            max-height: calc(90vh - 9em);
+            margin: 0 2em;
+            margin-top: 4em;
+            width: 13em;
+            overflow-y: auto;
+
+            h3.side-title {
+                color: rgb(35, 35, 35);
+                margin-bottom: 0;
+                font-size: 1.25rem;
+            }
+
+            ul.contents {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+
+                a {
+                    display: block;
+                    color: rgb(70, 70, 70);
+                    padding: 0.5em 0;
+
+                    &:hover {
+                        color: rgb(30, 85, 170);
+                    }
+                }
+
+                a.subtitle {
+                    margin-left: 0.2em;
+                }
+
+                a.heading {
+                    margin-left: 1.2em;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    header {
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+
+    footer {
+        .container {
+            width: 100%;
+            margin: 0 auto;
+        }
+    }
+
+    svg.logo {
+        width: 15em;
+    }
+
+    .body {
+        width: 67em;
+        margin: 0 auto;
+
+        .content {
+            width: 50em;
+        }
+
+        .sidebar {
+            width: 15em;
+        }
+    }
+
+    p.content {
+        line-height: 2rem;
+    }
+}
+
+@media screen and (min-width: 1500px) {
+    .body {
+        width: 82em;
+        margin: 0 auto;
+
+        .content {
+            width: 60em;
+
+            h3.heading {
+                margin-left: 1.5em;
+            }
+        }
+
+        .sidebar {
+            width: 20em;
+
+            ul.contents {
+                h3.side-title {
+                    font-size: 1.35rem;
+                }
+
+                a {
+                    font-size: 1.05rem;
+                }
+
+                a.subtitle {
+                    margin-left: 0.3em;
+                }
+
+                a.heading {
+                    margin-left: 2em;
+                }
+            }
+        }
+    }
+
+    h1.hero {
+        font-size: 2.7rem;
+    }
+
+    h2.subtitle {
+        font-size: 1.84rem;
+    }
+
+    h3.heading {
+        font-size: 1.35rem;
+    }
+
+    p.content {
+        line-height: 2.2rem;
+        font-size: 1.03rem;
+    }
+
+    .vids {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        .yt-vid {
+            margin-top: 0.5em;
+        }
+    }
 }

@@ -132,18 +132,20 @@ section.hero p {
 footer {
   background: rgb(20, 20, 20);
   text-decoration: none;
-  padding-bottom: 0.7em;
+  padding: 0.7em 1em;
 }
 footer img {
   float: right;
   margin-top: 0.5em;
-  margin-right: 0.5em;
+  margin-right: 1em;
+  margin-left: 0.5em;
 }
 footer p {
   font-size: 0.75rem;
   color: rgb(200, 200, 200);
   margin-bottom: 0.7em;
-  margin-left: 0.9em;
+  margin-left: 1em;
+  margin-right: 0.5em;
 }
 footer a {
   text-decoration: none;
@@ -229,6 +231,17 @@ footer a {
   header {
     padding-left: 2em;
     padding-right: 2em;
+  }
+  footer {
+    padding: 1em 2em;
+  }
+  footer img {
+    margin-top: 0.7em;
+    margin-right: 1.3em;
+  }
+  footer p {
+    margin-left: 1.3em;
+    margin-bottom: 1em;
   }
 }
 @media screen and (min-width: 920px) {
@@ -324,11 +337,12 @@ footer a {
     position: -webkit-sticky;
     position: sticky;
     top: 15vh;
-    max-height: calc(95vh - 9em);
+    max-height: calc(85vh - 9em);
     margin-bottom: 2em;
     margin: 0;
     display: initial;
     width: 10em;
+    overflow-y: auto;
   }
   .content.projects .sidebar.feed h3.title {
     padding: 0;
