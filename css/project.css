@@ -209,7 +209,7 @@ p.code {
     line-height: 2rem;
   }
 }
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1300px) {
   .body {
     width: 82em;
     margin: 0 auto;
