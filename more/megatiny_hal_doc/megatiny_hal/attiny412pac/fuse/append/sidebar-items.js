@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["APPEND_SPEC","Application Code Section End"],["R","Register `APPEND` reader"],["W","Register `APPEND` writer"]]};

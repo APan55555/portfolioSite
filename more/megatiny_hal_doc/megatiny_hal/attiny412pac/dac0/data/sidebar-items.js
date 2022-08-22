@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["DATA_SPEC","DATA Register"],["R","Register `DATA` reader"],["W","Register `DATA` writer"]]};
