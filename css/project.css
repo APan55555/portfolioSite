@@ -56,6 +56,14 @@ footer a {
   text-decoration: none;
   color: rgb(40, 40, 203);
 }
+footer a.extern {
+  float: right;
+  padding-right: 1.8em;
+  padding-top: 0.6em;
+  padding-bottom: 2em;
+  color: #f0f0f0;
+  font-size: 1.5rem;
+}
 
 .body {
   margin: 0.3em 1em;
@@ -82,13 +90,19 @@ p.content {
   margin: 0.7em 0.3em;
   line-height: 1.8rem;
 }
+p.content span.code {
+  background: #c8c8c8;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-radius: 5px;
+}
 
 p.code {
   color: black;
   margin: 0.7em 1em;
   padding: 0.5em;
   line-height: 2rem;
-  white-space: pre-line;
+  white-space: pre-wrap;
   background: #c8c8c8;
   border-radius: 5px;
 }

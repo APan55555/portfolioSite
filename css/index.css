@@ -186,6 +186,7 @@ footer a {
   text-decoration: none;
 }
 .feed section.project {
+  margin-bottom: 1em;
   border: 2px groove rgb(200, 200, 200);
   border-radius: 5px;
 }
