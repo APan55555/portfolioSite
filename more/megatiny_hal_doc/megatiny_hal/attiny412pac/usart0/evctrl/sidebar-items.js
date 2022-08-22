@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["EVCTRL_SPEC","Event Control"],["R","Register `EVCTRL` reader"],["W","Register `EVCTRL` writer"]],"type":[["IREI_R","Field `IREI` reader - IrDA Event Input Enable"],["IREI_W","Field `IREI` writer - IrDA Event Input Enable"]]};

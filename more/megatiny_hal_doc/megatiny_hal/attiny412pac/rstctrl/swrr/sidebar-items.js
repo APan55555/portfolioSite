@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `SWRR` reader"],["SWRR_SPEC","Software Reset"],["W","Register `SWRR` writer"]],"type":[["SWRE_R","Field `SWRE` reader - Software reset enable"],["SWRE_W","Field `SWRE` writer - Software reset enable"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CAPTUREB_SPEC","Capture B"],["R","Register `CAPTUREB` reader"]]};

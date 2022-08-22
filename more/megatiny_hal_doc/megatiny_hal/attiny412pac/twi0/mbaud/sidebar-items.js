@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["MBAUD_SPEC","Master Baurd Rate Control"],["R","Register `MBAUD` reader"],["W","Register `MBAUD` writer"]]};

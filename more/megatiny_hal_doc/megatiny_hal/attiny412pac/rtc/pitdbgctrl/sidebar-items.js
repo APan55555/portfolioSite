@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["PITDBGCTRL_SPEC","PIT Debug control"],["R","Register `PITDBGCTRL` reader"],["W","Register `PITDBGCTRL` writer"]],"type":[["DBGRUN_R","Field `DBGRUN` reader - Run in debug"],["DBGRUN_W","Field `DBGRUN` writer - Run in debug"]]};

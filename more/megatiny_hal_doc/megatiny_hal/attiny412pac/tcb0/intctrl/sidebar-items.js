@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["INTCTRL_SPEC","Interrupt Control"],["R","Register `INTCTRL` reader"],["W","Register `INTCTRL` writer"]],"type":[["CAPT_R","Field `CAPT` reader - Capture or Timeout"],["CAPT_W","Field `CAPT` writer - Capture or Timeout"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `TEMPSENSE0` reader"],["TEMPSENSE0_SPEC","Temperature Sensor Calibration Byte 0"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["INTFLAGS_SPEC","Interrupt Flags"],["R","Register `INTFLAGS` reader"],["W","Register `INTFLAGS` writer"]],"type":[["CMP_R","Field `CMP` reader - Compare Match Interrupt"],["CMP_W","Field `CMP` writer - Compare Match Interrupt"],["OVF_R","Field `OVF` reader - Overflow Interrupt Flag"],["OVF_W","Field `OVF` writer - Overflow Interrupt Flag"]]};

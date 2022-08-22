@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `SERNUM9` reader"],["SERNUM9_SPEC","Serial Number Byte 9"]]};

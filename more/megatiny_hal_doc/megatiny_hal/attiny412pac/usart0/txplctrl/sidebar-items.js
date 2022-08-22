@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `TXPLCTRL` reader"],["TXPLCTRL_SPEC","IRCOM Transmitter Pulse Length Control"],["W","Register `TXPLCTRL` writer"]],"type":[["TXPL_R","Field `TXPL` reader - Transmit pulse length"],["TXPL_W","Field `TXPL` writer - Transmit pulse length"]]};

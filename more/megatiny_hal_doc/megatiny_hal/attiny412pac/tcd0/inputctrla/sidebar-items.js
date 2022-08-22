@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["INPUTMODE_A","Input mode"]],"struct":[["INPUTCTRLA_SPEC","Input Control A"],["R","Register `INPUTCTRLA` reader"],["W","Register `INPUTCTRLA` writer"]],"type":[["INPUTMODE_R","Field `INPUTMODE` reader - Input mode"],["INPUTMODE_W","Field `INPUTMODE` writer - Input mode"]]};

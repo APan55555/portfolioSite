@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["PERIOD_A","Period"],["WINDOW_A","Window"]],"struct":[["CTRLA_SPEC","Control A"],["R","Register `CTRLA` reader"],["W","Register `CTRLA` writer"]],"type":[["PERIOD_R","Field `PERIOD` reader - Period"],["PERIOD_W","Field `PERIOD` writer - Period"],["WINDOW_R","Field `WINDOW` reader - Window"],["WINDOW_W","Field `WINDOW` writer - Window"]]};

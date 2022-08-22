@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["TCB0_A","Port Multiplexer TCB"]],"struct":[["CTRLD_SPEC","Port Multiplexer Control D"],["R","Register `CTRLD` reader"],["W","Register `CTRLD` writer"]],"type":[["TCB0_R","Field `TCB0` reader - Port Multiplexer TCB"],["TCB0_W","Field `TCB0` writer - Port Multiplexer TCB"]]};

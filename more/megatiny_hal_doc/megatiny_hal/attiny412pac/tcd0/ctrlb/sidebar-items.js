@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["WGMODE_A","Waveform generation mode"]],"struct":[["CTRLB_SPEC","Control B"],["R","Register `CTRLB` reader"],["W","Register `CTRLB` writer"]],"type":[["WGMODE_R","Field `WGMODE` reader - Waveform generation mode"],["WGMODE_W","Field `WGMODE` writer - Waveform generation mode"]]};

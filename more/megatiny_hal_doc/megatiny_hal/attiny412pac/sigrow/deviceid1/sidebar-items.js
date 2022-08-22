@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["DEVICEID1_SPEC","Device ID Byte 1"],["R","Register `DEVICEID1` reader"]]};

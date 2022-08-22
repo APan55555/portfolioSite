@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["CNT_SPEC","Counter"],["R","Register `CNT` reader"],["W","Register `CNT` writer"]]};
