@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `src/attiny412pac/ccl.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>ccl.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Regular.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../FiraSans-Medium.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Regular.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceSerif4-Bold.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../SourceCodePro-Semibold.ttf.woff2"><link rel="stylesheet" type="text/css" href="../../../normalize.css"><link rel="stylesheet" type="text/css" href="../../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../../ayu.css" disabled><link rel="stylesheet" type="text/css" href="../../../dark.css" disabled><link rel="stylesheet" type="text/css" href="../../../light.css" id="themeStyle"><script id="default-settings" ></script><script src="../../../storage.js"></script><script defer src="../../../source-script.js"></script><script defer src="../../../source-files.js"></script><script defer src="../../../main.js"></script><noscript><link rel="stylesheet" href="../../../noscript.css"></noscript><link rel="alternate icon" type="image/png" href="../../../favicon-16x16.png"><link rel="alternate icon" type="image/png" href="../../../favicon-32x32.png"><link rel="icon" type="image/svg+xml" href="../../../favicon.svg"></head><body class="rustdoc source"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="sidebar-logo" href="../../../megatiny_hal/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
+        </a><h2 class="location"></h2>
+    </nav>
+    <nav class="sidebar"><a class="sidebar-logo" href="../../../megatiny_hal/index.html"><div class="logo-container"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></div>
+        </a></nav><main><div class="width-limiter"><div class="sub-container"><a class="sub-logo-container" href="../../../megatiny_hal/index.html"><img class="rust-logo" src="../../../rust-logo.svg" alt="logo"></a><nav class="sub"><form class="search-form"><div class="search-container"><span></span><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><button type="button">?</button></div><div id="settings-menu" tabindex="-1">
+                                <a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../wheel.svg"></a></div>
+                        </div></form></nav></div><section id="main-content" class="content"><div class="example-wrap"><pre class="line-numbers"><span id="1">1</span>
+<span id="2">2</span>
+<span id="3">3</span>
+<span id="4">4</span>
+<span id="5">5</span>
+<span id="6">6</span>
+<span id="7">7</span>
+<span id="8">8</span>
+<span id="9">9</span>
+<span id="10">10</span>
+<span id="11">11</span>
+<span id="12">12</span>
+<span id="13">13</span>
+<span id="14">14</span>
+<span id="15">15</span>
+<span id="16">16</span>
+<span id="17">17</span>
+<span id="18">18</span>
+<span id="19">19</span>
+<span id="20">20</span>
+<span id="21">21</span>
+<span id="22">22</span>
+<span id="23">23</span>
+<span id="24">24</span>
+<span id="25">25</span>
+<span id="26">26</span>
+<span id="27">27</span>
+<span id="28">28</span>
+<span id="29">29</span>
+<span id="30">30</span>
+<span id="31">31</span>
+<span id="32">32</span>
+<span id="33">33</span>
+<span id="34">34</span>
+<span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
+<span id="39">39</span>
+<span id="40">40</span>
+<span id="41">41</span>
+<span id="42">42</span>
+<span id="43">43</span>
+<span id="44">44</span>
+<span id="45">45</span>
+<span id="46">46</span>
+<span id="47">47</span>
+<span id="48">48</span>
+<span id="49">49</span>
+<span id="50">50</span>
+<span id="51">51</span>
+<span id="52">52</span>
+<span id="53">53</span>
+<span id="54">54</span>
+<span id="55">55</span>
+<span id="56">56</span>
+<span id="57">57</span>
+<span id="58">58</span>
+<span id="59">59</span>
+<span id="60">60</span>
+<span id="61">61</span>
+<span id="62">62</span>
+<span id="63">63</span>
+<span id="64">64</span>
+<span id="65">65</span>
+</pre><pre class="rust"><code><span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">r&quot;Register block&quot;</span>]</span>
+<span class="attribute">#[<span class="ident">repr</span>(<span class="ident">C</span>)]</span>
+<span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">RegisterBlock</span> {
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x00 - Control Register A&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">ctrla</span>: <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">ctrla::CTRLA_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x01 - Sequential Control 0&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">seqctrl0</span>: <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">seqctrl0::SEQCTRL0_SPEC</span><span class="op">&gt;</span>,
+    <span class="ident">_reserved2</span>: [<span class="ident">u8</span>; <span class="number">0x03</span>],
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x05 - LUT Control 0 A&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">lut0ctrla</span>: <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut0ctrla::LUT0CTRLA_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x06 - LUT Control 0 B&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">lut0ctrlb</span>: <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut0ctrlb::LUT0CTRLB_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x07 - LUT Control 0 C&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">lut0ctrlc</span>: <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut0ctrlc::LUT0CTRLC_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x08 - Truth 0&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">truth0</span>: <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">truth0::TRUTH0_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x09 - LUT Control 1 A&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">lut1ctrla</span>: <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut1ctrla::LUT1CTRLA_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x0a - LUT Control 1 B&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">lut1ctrlb</span>: <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut1ctrlb::LUT1CTRLB_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x0b - LUT Control 1 C&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">lut1ctrlc</span>: <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut1ctrlc::LUT1CTRLC_SPEC</span><span class="op">&gt;</span>,
+    <span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;0x0c - Truth 1&quot;</span>]</span>
+    <span class="kw">pub</span> <span class="ident">truth1</span>: <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">truth1::TRUTH1_SPEC</span><span class="op">&gt;</span>,
+}
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;CTRLA register accessor: an alias for `Reg&lt;CTRLA_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">CTRLA</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">ctrla::CTRLA_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Control Register A&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">ctrla</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT0CTRLA register accessor: an alias for `Reg&lt;LUT0CTRLA_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LUT0CTRLA</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut0ctrla::LUT0CTRLA_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT Control 0 A&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lut0ctrla</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT0CTRLB register accessor: an alias for `Reg&lt;LUT0CTRLB_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LUT0CTRLB</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut0ctrlb::LUT0CTRLB_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT Control 0 B&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lut0ctrlb</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT0CTRLC register accessor: an alias for `Reg&lt;LUT0CTRLC_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LUT0CTRLC</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut0ctrlc::LUT0CTRLC_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT Control 0 C&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lut0ctrlc</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT1CTRLA register accessor: an alias for `Reg&lt;LUT1CTRLA_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LUT1CTRLA</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut1ctrla::LUT1CTRLA_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT Control 1 A&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lut1ctrla</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT1CTRLB register accessor: an alias for `Reg&lt;LUT1CTRLB_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LUT1CTRLB</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut1ctrlb::LUT1CTRLB_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT Control 1 B&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lut1ctrlb</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT1CTRLC register accessor: an alias for `Reg&lt;LUT1CTRLC_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">LUT1CTRLC</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">lut1ctrlc::LUT1CTRLC_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;LUT Control 1 C&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">lut1ctrlc</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;SEQCTRL0 register accessor: an alias for `Reg&lt;SEQCTRL0_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">SEQCTRL0</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">seqctrl0::SEQCTRL0_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Sequential Control 0&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">seqctrl0</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;TRUTH0 register accessor: an alias for `Reg&lt;TRUTH0_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">TRUTH0</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">truth0::TRUTH0_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Truth 0&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">truth0</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;TRUTH1 register accessor: an alias for `Reg&lt;TRUTH1_SPEC&gt;`&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">TRUTH1</span> <span class="op">=</span> <span class="ident"><span class="kw">crate</span>::attiny412pac::Reg</span><span class="op">&lt;</span><span class="ident">truth1::TRUTH1_SPEC</span><span class="op">&gt;</span>;
+<span class="attribute">#[<span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;Truth 1&quot;</span>]</span>
+<span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">truth1</span>;
+</code></pre></div>
+</section></div></main><div id="rustdoc-vars" data-root-path="../../../" data-current-crate="megatiny_hal" data-themes="ayu,dark,light" data-resource-suffix="" data-rustdoc-version="1.64.0-nightly (9a7b7d5e5 2022-07-19)" ></div>
+</body></html>

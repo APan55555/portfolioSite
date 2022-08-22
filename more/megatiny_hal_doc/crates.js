@@ -1,0 +1,1 @@
+window.ALL_CRATES = ["bare_metal","megatiny_hal","panic_halt","vcell"];
