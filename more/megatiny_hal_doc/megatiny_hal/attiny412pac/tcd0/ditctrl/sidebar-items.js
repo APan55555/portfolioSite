@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":[["DITHERSEL_A","dither select"]],"struct":[["DITCTRL_SPEC","Dither Control A"],["R","Register `DITCTRL` reader"],["W","Register `DITCTRL` writer"]],"type":[["DITHERSEL_R","Field `DITHERSEL` reader - dither select"],["DITHERSEL_W","Field `DITHERSEL` writer - dither select"]]};

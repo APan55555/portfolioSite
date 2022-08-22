@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["MDATA_SPEC","Master Data"],["R","Register `MDATA` reader"],["W","Register `MDATA` writer"]]};

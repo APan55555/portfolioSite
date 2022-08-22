@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["OUT_SPEC","Output Value"],["R","Register `OUT` reader"],["W","Register `OUT` writer"]]};

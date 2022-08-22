@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["DLYVAL_SPEC","Delay value"],["R","Register `DLYVAL` reader"],["W","Register `DLYVAL` writer"]],"type":[["DLYVAL_R","Field `DLYVAL` reader - Delay value"],["DLYVAL_W","Field `DLYVAL` writer - Delay value"]]};

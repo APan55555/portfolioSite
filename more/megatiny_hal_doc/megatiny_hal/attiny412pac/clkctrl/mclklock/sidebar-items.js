@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["MCLKLOCK_SPEC","MCLK Lock"],["R","Register `MCLKLOCK` reader"],["W","Register `MCLKLOCK` writer"]],"type":[["LOCKEN_R","Field `LOCKEN` reader - lock ebable"],["LOCKEN_W","Field `LOCKEN` writer - lock ebable"]]};

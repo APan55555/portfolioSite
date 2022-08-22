@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["ASYNCSTROBE_SPEC","Asynchronous Channel Strobe"],["R","Register `ASYNCSTROBE` reader"],["W","Register `ASYNCSTROBE` writer"]]};

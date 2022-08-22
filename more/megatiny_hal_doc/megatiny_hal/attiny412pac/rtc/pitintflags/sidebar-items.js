@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["PITINTFLAGS_SPEC","PIT Interrupt Flags"],["R","Register `PITINTFLAGS` reader"],["W","Register `PITINTFLAGS` writer"]],"type":[["PI_R","Field `PI` reader - Periodic Interrupt"],["PI_W","Field `PI` writer - Periodic Interrupt"]]};

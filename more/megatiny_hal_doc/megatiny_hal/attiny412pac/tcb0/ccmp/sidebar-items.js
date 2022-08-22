@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CCMP_SPEC","Compare or Capture"],["R","Register `CCMP` reader"],["W","Register `CCMP` writer"]]};

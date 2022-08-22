@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["MADDR_SPEC","Master Address"],["R","Register `MADDR` reader"],["W","Register `MADDR` writer"]]};

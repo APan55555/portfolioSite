@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["EXTBRK_SPEC","External Break"],["R","Register `EXTBRK` reader"],["W","Register `EXTBRK` writer"]],"type":[["ENEXTBRK_R","Field `ENEXTBRK` reader - External break enable"],["ENEXTBRK_W","Field `ENEXTBRK` writer - External break enable"]]};

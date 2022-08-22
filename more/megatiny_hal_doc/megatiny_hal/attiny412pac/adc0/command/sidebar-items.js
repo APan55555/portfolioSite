@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["COMMAND_SPEC","Command"],["R","Register `COMMAND` reader"],["W","Register `COMMAND` writer"]],"type":[["STCONV_R","Field `STCONV` reader - Start Conversion Operation"],["STCONV_W","Field `STCONV` writer - Start Conversion Operation"]]};

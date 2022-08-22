@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["INTCTRL_SPEC","Interrupt Control"],["R","Register `INTCTRL` reader"],["W","Register `INTCTRL` writer"]],"type":[["EEREADY_R","Field `EEREADY` reader - EEPROM Ready"],["EEREADY_W","Field `EEREADY` writer - EEPROM Ready"]]};

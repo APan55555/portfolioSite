@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["DIR_SPEC","Data Direction"],["R","Register `DIR` reader"],["W","Register `DIR` writer"]]};

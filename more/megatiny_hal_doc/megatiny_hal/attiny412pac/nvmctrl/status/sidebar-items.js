@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `STATUS` reader"],["STATUS_SPEC","Status"]],"type":[["EEBUSY_R","Field `EEBUSY` reader - EEPROM busy"],["FBUSY_R","Field `FBUSY` reader - Flash busy"],["WRERROR_R","Field `WRERROR` reader - Write error"]]};

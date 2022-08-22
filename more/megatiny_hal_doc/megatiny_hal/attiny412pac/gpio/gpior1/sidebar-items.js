@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["GPIOR1_SPEC","General Purpose IO Register 1"],["R","Register `GPIOR1` reader"],["W","Register `GPIOR1` writer"]]};

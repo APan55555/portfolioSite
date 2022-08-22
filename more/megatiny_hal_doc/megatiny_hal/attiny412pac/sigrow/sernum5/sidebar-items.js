@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `SERNUM5` reader"],["SERNUM5_SPEC","Serial Number Byte 5"]]};

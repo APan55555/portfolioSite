@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `SADDRMASK` reader"],["SADDRMASK_SPEC","Slave Address Mask"],["W","Register `SADDRMASK` writer"]],"type":[["ADDREN_R","Field `ADDREN` reader - Address Enable"],["ADDREN_W","Field `ADDREN` writer - Address Enable"],["ADDRMASK_R","Field `ADDRMASK` reader - Address Mask"],["ADDRMASK_W","Field `ADDRMASK` writer - Address Mask"]]};

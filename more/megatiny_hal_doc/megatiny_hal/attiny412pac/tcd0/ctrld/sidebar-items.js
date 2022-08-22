@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CTRLD_SPEC","Control D"],["R","Register `CTRLD` reader"],["W","Register `CTRLD` writer"]],"type":[["CMPAVAL_R","Field `CMPAVAL` reader - Compare A value"],["CMPAVAL_W","Field `CMPAVAL` writer - Compare A value"],["CMPBVAL_R","Field `CMPBVAL` reader - Compare B value"],["CMPBVAL_W","Field `CMPBVAL` writer - Compare B value"]]};

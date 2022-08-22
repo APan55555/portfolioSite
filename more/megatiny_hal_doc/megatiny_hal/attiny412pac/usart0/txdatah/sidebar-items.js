@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `TXDATAH` reader"],["TXDATAH_SPEC","Transmit Data High Byte"],["W","Register `TXDATAH` writer"]],"type":[["DATA8_R","Field `DATA8` reader - Transmit Data Register (CHSIZE=9bit)"],["DATA8_W","Field `DATA8` writer - Transmit Data Register (CHSIZE=9bit)"]]};

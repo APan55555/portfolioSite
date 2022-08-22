@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"macro":[["Pin","Returns a Pin enum with input formatted ([peripherals], [pin number formatted [port][pin number]] input/output)"]],"mod":[["attiny412","The hardware abstraction layer for the attiny412"],["attiny412pac","Peripheral access API for ATTINY412 microcontrollers (generated using svd2rust v0.24.1 ( ))"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["INTFLAGS_SPEC","Interrupt Flags"],["R","Register `INTFLAGS` reader"],["W","Register `INTFLAGS` writer"]],"type":[["CAPT_R","Field `CAPT` reader - Capture or Timeout"],["CAPT_W","Field `CAPT` writer - Capture or Timeout"]]};

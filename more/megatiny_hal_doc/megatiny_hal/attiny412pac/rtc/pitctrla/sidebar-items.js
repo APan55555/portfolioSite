@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":[["PERIOD_A","Period"]],"struct":[["PITCTRLA_SPEC","PIT Control A"],["R","Register `PITCTRLA` reader"],["W","Register `PITCTRLA` writer"]],"type":[["PERIOD_R","Field `PERIOD` reader - Period"],["PERIOD_W","Field `PERIOD` writer - Period"],["PITEN_R","Field `PITEN` reader - Enable"],["PITEN_W","Field `PITEN` writer - Enable"]]};

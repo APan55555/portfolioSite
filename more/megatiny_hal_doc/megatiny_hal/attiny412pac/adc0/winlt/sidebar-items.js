@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `WINLT` reader"],["W","Register `WINLT` writer"],["WINLT_SPEC","Window comparator low threshold"]]};

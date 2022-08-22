@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `REVID` reader"],["REVID_SPEC","Revision ID"],["W","Register `REVID` writer"]]};

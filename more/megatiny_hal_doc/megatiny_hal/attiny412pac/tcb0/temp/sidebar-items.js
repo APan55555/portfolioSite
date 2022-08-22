@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `TEMP` reader"],["TEMP_SPEC","Temporary Value"],["W","Register `TEMP` writer"]]};

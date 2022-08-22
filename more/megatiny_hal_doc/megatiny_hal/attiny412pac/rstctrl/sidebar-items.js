@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"mod":[["rstfr","Reset Flags"],["swrr","Software Reset"]],"struct":[["RegisterBlock","Register block"]],"type":[["RSTFR","RSTFR register accessor: an alias for `Reg<RSTFR_SPEC>`"],["SWRR","SWRR register accessor: an alias for `Reg<SWRR_SPEC>`"]]};

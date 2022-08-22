@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CMPBCLR_SPEC","Compare B Clear"],["R","Register `CMPBCLR` reader"],["W","Register `CMPBCLR` writer"]]};

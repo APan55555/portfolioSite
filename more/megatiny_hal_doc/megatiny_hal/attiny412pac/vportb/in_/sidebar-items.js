@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["IN_SPEC","Input Value"],["R","Register `IN` reader"],["W","Register `IN` writer"]]};

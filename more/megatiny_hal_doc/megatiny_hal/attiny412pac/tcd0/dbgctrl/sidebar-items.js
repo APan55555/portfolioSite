@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["DBGCTRL_SPEC","Debug Control"],["R","Register `DBGCTRL` reader"],["W","Register `DBGCTRL` writer"]],"type":[["DBGRUN_R","Field `DBGRUN` reader - Debug run"],["DBGRUN_W","Field `DBGRUN` writer - Debug run"],["FAULTDET_R","Field `FAULTDET` reader - Fault detection"],["FAULTDET_W","Field `FAULTDET` writer - Fault detection"]]};

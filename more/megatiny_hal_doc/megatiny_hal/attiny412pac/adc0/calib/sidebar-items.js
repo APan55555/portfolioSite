@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":[["DUTYCYC_A","Duty Cycle"]],"struct":[["CALIB_SPEC","Calibration"],["R","Register `CALIB` reader"],["W","Register `CALIB` writer"]],"type":[["DUTYCYC_R","Field `DUTYCYC` reader - Duty Cycle"],["DUTYCYC_W","Field `DUTYCYC` writer - Duty Cycle"]]};

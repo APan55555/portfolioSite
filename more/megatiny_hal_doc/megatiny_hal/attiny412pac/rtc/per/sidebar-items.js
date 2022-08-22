@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["PER_SPEC","Period"],["R","Register `PER` reader"],["W","Register `PER` writer"]]};

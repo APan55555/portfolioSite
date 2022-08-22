@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["DBGCTRL_SPEC","Debug Control"],["R","Register `DBGCTRL` reader"],["W","Register `DBGCTRL` writer"]],"type":[["ABMBP_R","Field `ABMBP` reader - Autobaud majority voter bypass"],["ABMBP_W","Field `ABMBP` writer - Autobaud majority voter bypass"],["DBGRUN_R","Field `DBGRUN` reader - Debug Run"],["DBGRUN_W","Field `DBGRUN` writer - Debug Run"]]};

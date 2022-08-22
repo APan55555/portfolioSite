@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["EVCTRL_SPEC","Event Control"],["R","Register `EVCTRL` reader"],["W","Register `EVCTRL` writer"]],"type":[["STARTEI_R","Field `STARTEI` reader - Start Event Input Enable"],["STARTEI_W","Field `STARTEI` writer - Start Event Input Enable"]]};

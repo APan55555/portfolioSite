@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"enum":[["SAMPNUM_A","Accumulation Samples"]],"struct":[["CTRLB_SPEC","Control B"],["R","Register `CTRLB` reader"],["W","Register `CTRLB` writer"]],"type":[["SAMPNUM_R","Field `SAMPNUM` reader - Accumulation Samples"],["SAMPNUM_W","Field `SAMPNUM` writer - Accumulation Samples"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `SAMPCTRL` reader"],["SAMPCTRL_SPEC","Sample Control"],["W","Register `SAMPCTRL` writer"]],"type":[["SAMPLEN_R","Field `SAMPLEN` reader - Sample lenght"],["SAMPLEN_W","Field `SAMPLEN` writer - Sample lenght"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["R","Register `USERROW31` reader"],["USERROW31_SPEC","User Row Byte 31"],["W","Register `USERROW31` writer"]]};

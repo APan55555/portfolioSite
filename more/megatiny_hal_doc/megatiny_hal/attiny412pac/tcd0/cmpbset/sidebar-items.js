@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CMPBSET_SPEC","Compare B Set"],["R","Register `CMPBSET` reader"],["W","Register `CMPBSET` writer"]]};

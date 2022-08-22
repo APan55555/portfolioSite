@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["INTFLAGS_SPEC","Interrupt Flags"],["R","Register `INTFLAGS` reader"],["W","Register `INTFLAGS` writer"]],"type":[["RESRDY_R","Field `RESRDY` reader - Result Ready Flag"],["RESRDY_W","Field `RESRDY` writer - Result Ready Flag"],["WCMP_R","Field `WCMP` reader - Window Comparator Flag"],["WCMP_W","Field `WCMP` writer - Window Comparator Flag"]]};

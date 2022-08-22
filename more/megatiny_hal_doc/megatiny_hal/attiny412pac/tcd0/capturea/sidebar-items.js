@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CAPTUREA_SPEC","Capture A"],["R","Register `CAPTUREA` reader"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["PITSTATUS_SPEC","PIT Status"],["R","Register `PITSTATUS` reader"]],"type":[["CTRLBUSY_R","Field `CTRLBUSY` reader - CTRLA Synchronization Busy Flag"]]};

@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["OSC16ERR5V_SPEC","OSC16 error at 5V"],["R","Register `OSC16ERR5V` reader"]]};

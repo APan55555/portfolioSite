@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"struct":[["CTRLB_SPEC","Control B"],["R","Register `CTRLB` reader"],["W","Register `CTRLB` writer"]],"type":[["APCWP_R","Field `APCWP` reader - Application code write protect"],["APCWP_W","Field `APCWP` writer - Application code write protect"],["BOOTLOCK_R","Field `BOOTLOCK` reader - Boot Lock"],["BOOTLOCK_W","Field `BOOTLOCK` writer - Boot Lock"]]};
