@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":[["ccp","Configuration Change Protection"],["sph","Stack Pointer High"],["spl","Stack Pointer Low"]],"struct":[["RegisterBlock","Register block"]],"type":[["CCP","CCP register accessor: an alias for `Reg<CCP_SPEC>`"],["SPH","SPH register accessor: an alias for `Reg<SPH_SPEC>`"],["SPL","SPL register accessor: an alias for `Reg<SPL_SPEC>`"]]};

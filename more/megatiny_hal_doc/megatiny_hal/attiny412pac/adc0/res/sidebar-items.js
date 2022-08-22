@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `RES` reader"],["RES_SPEC","ADC Accumulator Result"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["INTFLAGS_SPEC","Voltage level monitor interrupt Flags"],["R","Register `INTFLAGS` reader"],["W","Register `INTFLAGS` writer"]],"type":[["VLMIF_R","Field `VLMIF` reader - Voltage level monitor interrupt flag"],["VLMIF_W","Field `VLMIF` writer - Voltage level monitor interrupt flag"]]};

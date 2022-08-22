@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["WINCM_A","Window Comparator Mode"]],"struct":[["CTRLE_SPEC","Control E"],["R","Register `CTRLE` reader"],["W","Register `CTRLE` writer"]],"type":[["WINCM_R","Field `WINCM` reader - Window Comparator Mode"],["WINCM_W","Field `WINCM` writer - Window Comparator Mode"]]};

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["LVL1VEC_SPEC","Interrupt Level 1 Priority Vector"],["R","Register `LVL1VEC` reader"],["W","Register `LVL1VEC` writer"]],"type":[["LVL1VEC_R","Field `LVL1VEC` reader - Interrupt Vector with High Priority"],["LVL1VEC_W","Field `LVL1VEC` writer - Interrupt Vector with High Priority"]]};

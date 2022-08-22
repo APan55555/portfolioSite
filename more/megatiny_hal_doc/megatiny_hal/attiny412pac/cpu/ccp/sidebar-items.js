@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["CCP_A","CCP signature"]],"struct":[["CCP_SPEC","Configuration Change Protection"],["R","Register `CCP` reader"],["W","Register `CCP` writer"]],"type":[["CCP_R","Field `CCP` reader - CCP signature"],["CCP_W","Field `CCP` writer - CCP signature"]]};

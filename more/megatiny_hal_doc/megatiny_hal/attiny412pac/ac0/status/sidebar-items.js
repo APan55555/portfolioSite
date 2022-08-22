@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `STATUS` reader"],["STATUS_SPEC","Status"],["W","Register `STATUS` writer"]],"type":[["CMP_R","Field `CMP` reader - Analog Comparator Interrupt Flag"],["CMP_W","Field `CMP` writer - Analog Comparator Interrupt Flag"],["STATE_R","Field `STATE` reader - Analog Comparator State"]]};

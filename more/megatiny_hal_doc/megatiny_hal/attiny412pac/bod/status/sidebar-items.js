@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `STATUS` reader"],["STATUS_SPEC","Voltage level monitor status"],["W","Register `STATUS` writer"]],"type":[["VLMS_R","Field `VLMS` reader - Voltage level monitor status"]]};

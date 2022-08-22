@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["VLMLVL_A","voltage level monitor level"]],"struct":[["R","Register `VLMCTRLA` reader"],["VLMCTRLA_SPEC","Voltage level monitor Control"],["W","Register `VLMCTRLA` writer"]],"type":[["VLMLVL_R","Field `VLMLVL` reader - voltage level monitor level"],["VLMLVL_W","Field `VLMLVL` writer - voltage level monitor level"]]};

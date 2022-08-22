@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"struct":[["R","Register `WINHT` reader"],["W","Register `WINHT` writer"],["WINHT_SPEC","Window comparator high threshold"]]};

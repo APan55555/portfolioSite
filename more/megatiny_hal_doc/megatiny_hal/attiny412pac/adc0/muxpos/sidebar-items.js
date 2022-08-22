@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":[["MUXPOS_A","Analog Channel Selection Bits"]],"struct":[["MUXPOS_SPEC","Positive mux input"],["R","Register `MUXPOS` reader"],["W","Register `MUXPOS` writer"]],"type":[["MUXPOS_R","Field `MUXPOS` reader - Analog Channel Selection Bits"],["MUXPOS_W","Field `MUXPOS` writer - Analog Channel Selection Bits"]]};
