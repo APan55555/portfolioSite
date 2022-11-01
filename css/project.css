@@ -146,12 +146,16 @@ p.code {
     padding-right: 2.5em;
   }
   footer {
-    margin-top: 4.5em;
+    margin-top: 2em;
   }
 }
 @media screen and (min-width: 1080px) {
   .body {
-    width: 70em;
+    width: 60em;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 2em;
     margin: 0 auto;
   }
   .body .content {
@@ -210,7 +214,7 @@ p.code {
     width: 15em;
   }
   .body {
-    width: 80em;
+    width: 67em;
     margin: 0 auto;
   }
   .body .content {
@@ -225,7 +229,7 @@ p.code {
 }
 @media screen and (min-width: 1300px) {
   .body {
-    width: 90em;
+    width: 82em;
     margin: 0 auto;
   }
   .body .content {
