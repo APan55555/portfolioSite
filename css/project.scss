@@ -98,6 +98,7 @@ p.content {
     line-height: 1.8rem;
 
     span.code {
+        font-family: "Source Code Pro", monospace;
         background: #c8c8c8;
         padding-left: 0.5rem;
         padding-right: 0.5rem;
@@ -106,6 +107,7 @@ p.content {
 }
 
 p.code {
+    font-family: "Source Code Pro", monospace;
     color: black;
     margin: 0.7em 1em;
     padding: 0.5em;
