@@ -43,7 +43,7 @@
                     <p class="content">
                         Megatiny_hal is a hardware abstraction layer for attiny and atmega avr devices that I will be continually developing.
                         The development of this package used both <a href="https://crates.io/crates/atdf2svd">atdf2svd</a> and <a href="https://docs.rs/svd2rust/0.25.0/svd2rust/">svd2rust</a>.
-                        This page will only discuss basic usage; for more information regarding all the package's features, refer to <a href="https://docs.rs/megatiny_hal/0.1.0/megatiny_hal/">this documentation</a>.
+                        This page will only discuss basic usage; for more information regarding all the package's features, refer to <a href="https://docs.rs/megatiny_hal/0.2.0/megatiny_hal/">this documentation</a>.
                     </p>
 
                     <h2 class="subtitle" id="usage">Usage</h2>
@@ -115,11 +115,12 @@ lto = true</p>
 
                     <p class="code">use core::ops::Deref;
 use::megatiny_hal::attiny412;
-use megatiny_hal::attiny412::{TimeUnit, Pin};
-use megatiny_hal::Pin;</p>
+use megatiny_hal::attiny412::{TimeUnit, Pin, PinSelect};
+use megatiny_hal::{Pin, GPIO};</p>
 
                     <p class="content">
-                        Note that the including of megatiny_hal::attiny412::Pin is necessary to use the megatiny_hal::Pin macro.
+                        Note that the including of a Pin struct as well as a PinSelect enum is necessary to use the megatiny_hal::Pin macro, and the including 
+                        of the megatiny_hal::GPIO trait is necessary to use the methods associated with a GPIO pin.
                     </p>
 
                     <p class="content">
@@ -136,11 +137,11 @@ pub extern "C" fn main() {
                     </p>
 
                     <p class="code">let periphs = attiny412::get_periphs();  // gets the peripherals
-let timer = attiny412::init_timer(&periphs, TimeUnit::Ms);  // initializes the timer
-let led_pin = Pin!(periphs, PA3 output);  // creates an led pin for PA3 as an output
+attiny412::init_timer(&periphs, TimeUnit::Ms);  // initializes the timer
+let led_pin = Pin!(&periphs, PA3 output);  // creates an led pin for PA3 as an output
 loop {
-    led_pin.toggle(&periphs);  // toggles the led pin
-    attiny412::delay(timer, 1000);  // delays for 1000 milliseconds (1 second)
+    led_pin.toggle();  // toggles the led pin
+    attiny412::delay(&periphs, 1000);  // delays for 1000 milliseconds (1 second)
 }</p>
                     <h3 class="heading" id="build-flash">Building and Flashing</h3>
 
