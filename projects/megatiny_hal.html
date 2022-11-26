@@ -163,6 +163,37 @@ loop {
                         This section will discuss my process for developing this project and can also be seen as a super verbose, instructive changelog.
                     </p>
 
+                    <h3 class="heading" id="v0.2.0">Version 0.2.0</h3>
+
+                    <p class="content">
+                        I decided that it was probably a good idea to make a GPIO trait for the pins and that having to pass a reference 
+                        to the peripherals each time the pins are written to was tedious, so I changed the Pin enum to a struct that stores 
+                        a reference to the peripherals. I then just made sure that it still worked.
+                    </p>
+
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 10%;">
+                        <video width="70%"  controls>
+                            <source src="../images/megatiny_hal/attiny412hal_0.2.0_blinky1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <p class="content">
+                        I then changed the delay and init_timer functions to avoid having store a timer and pass it at each delay. 
+                        Instead, it passes a reference to the peripherals.
+                    </p>
+
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 10%;">
+                        <video width="70%"  controls>
+                            <source src="../images/megatiny_hal/attiny412hal_0.2.0_blinky2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
                     <h3 class="heading" id="v0.1.0">Version 0.1.0</h3>
 
                     <p class="content">
@@ -293,6 +324,9 @@ extern "C" fn eh_personality() {}
                         </li>
                         <li>
                             <a href="#dev" class="subtitle">Development</a>
+                        </li>
+                        <li>
+                            <a href="#v0.2.0" class="heading">Version 0.2.0</a>
                         </li>
                         <li>
                             <a href="#v0.1.0" class="heading">Version 0.1.0</a>
