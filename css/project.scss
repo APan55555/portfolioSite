@@ -47,6 +47,7 @@ footer {
         margin-top: 0.5em;
         margin-right: 1em;
         margin-left: 0.5em;
+        width: 6em;
     }
 
     p {
@@ -115,6 +116,12 @@ p.code {
     white-space: pre-wrap;
     background: #c8c8c8;
     border-radius: 5px;
+}
+
+img {
+    display: block;
+    width: 90%;
+    margin: 0.5em auto;
 }
 
 .sidebar {
@@ -321,6 +328,12 @@ p.code {
         grid-template-columns: repeat(2, auto);
         .yt-vid {
             margin-top: 0.5em;
+        }
+    }
+
+    footer {
+        img {
+            width: 7em;
         }
     }
 }

@@ -45,6 +45,7 @@ footer img {
   margin-top: 0.5em;
   margin-right: 1em;
   margin-left: 0.5em;
+  width: 6em;
 }
 footer p {
   font-size: 0.75rem;
@@ -108,6 +109,12 @@ p.code {
   white-space: pre-wrap;
   background: #c8c8c8;
   border-radius: 5px;
+}
+
+img {
+  display: block;
+  width: 90%;
+  margin: 0.5em auto;
 }
 
 .sidebar {
@@ -274,5 +281,8 @@ p.code {
   }
   .vids .yt-vid {
     margin-top: 0.5em;
+  }
+  footer img {
+    width: 7em;
   }
 }/*# sourceMappingURL=project.css.map */

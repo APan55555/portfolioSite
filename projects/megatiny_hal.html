@@ -156,6 +156,86 @@ loop {
                         and replace the avrdude.conf file in the directory with your avrdude executable with the avrdude.conf file in that repo. If you have a linux os, 
                         you may need to navigate to the directory and run <span class="code">sudo nano ./avrdude.conf</span> to edit the file.
                     </p>
+
+                    <h2 class="subtitle" id="dev">Development</h2>
+
+                    <p class="content">
+                        This section will discuss my process for developing this project and can also be seen as a super verbose, instructive changelog.
+                    </p>
+
+                    <h3 class="heading" id="v0.1.0">Version 0.1.0</h3>
+
+                    <p class="content">
+                        <a href="https://youtu.be/pj2Rk-ftcWA">This video</a> was an excellent starting point for embedded work although the example chip used 
+                        had an arm cortex processor, which has better support in Rust than AVR. From there, I got the device specification file for the attiny412 
+                        in the form of an atdf from <a href="https://github.com/avr-rust/avr-mcu/tree/master/packs">this repo</a>, and using <a href="https://crates.io/crates/atdf2svd">atdf2svd</a>, 
+                        I converted it to an svd to use <a href="https://docs.rs/svd2rust/0.25.0/svd2rust/">svd2rust</a> to generate the PAC.
+                    </p>
+
+                    <p class="content">
+                        To note, I got the following error from atdf2svd, so the TCA0 peripheral cannot be used since atdf2svd has no support for
+                        representing the split mode of this peripheral as an svd.
+                    </p>
+
+                    <img src="../images/megatiny_hal/atdf2svdwarnings.jpg" alt="atdf2svd warning about TCA0">
+                    
+                    <p class="content">
+                        Working with the PAC, I used panic-halt as my panic handler, but when I went to compile, I encountered a few errors. 
+                        Firstly, since it uses avr-gcc as a linker, the following error came from avr-gcc:
+                    </p>
+
+                    <img src="../images/megatiny_hal/avrgccerror.jpg" alt="avr-gcc error">
+
+                    <p class="content">
+                        I found that the reason for this was that, as stated in the <a href="#install-dep">Installing Dependencies section</a>, the version of avr-gcc that I 
+                        had from ubuntu's apt package manager was too old (version 5.4.0), and I found one that worked from <a href="https://blog.zakkemble.net/avr-gcc-builds/">this site</a>.
+                    </p>
+
+                    <p class="content">
+                        Next I got the following error regarding eh_personality:
+                    </p>
+
+                    <img src="../images/megatiny_hal/ehpersonality.jpg" alt="eh_personality error">
+
+                    <p class="content">
+                        I found a couple solutions from <a href="https://docs.rust-embedded.org/embedonomicon/smallest-no-std.html">this site</a>. 
+                        I first added the following to the cargo.toml file:
+                    </p>
+
+                    <p class="code">[profile.dev]
+panic = "abort"
+                        
+[profile.release]
+panic = "abort"</p>
+
+                    <p class="content">
+                        Later, I decided that it probably was not best to have the panic behavior as abort in cargo.toml but use panic-halt, so 
+                        I changed to the other solution of adding the following eh_personality function:
+                    </p>
+
+                    <p class="code">#![feature(lang_items)]
+                        
+fn main() {
+#[lang = "eh_personality"]
+extern "C" fn eh_personality() {}
+}</p>
+
+                    <p class="content">
+                        Then, after compiling and uploading some test code, the LED lit up, but did not blink at the desired rate.
+                    </p>
+
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 10%;">
+                        <video width="70%"  controls>
+                            <source src="../images/megatiny_hal/attiny412pac_blinky_not_working.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <p class="content">
+                        I realized that I had not checked the status of the RTC peripheral before writing to it, so after doing that, it worked
+                    </p>
                 </div>
 
                 <div class="sidebar">
@@ -177,6 +257,12 @@ loop {
                         </li>
                         <li>
                             <a href="#build-flash" class="heading">Building and Flashing</a>
+                        </li>
+                        <li>
+                            <a href="#dev" class="subtitle">Development</a>
+                        </li>
+                        <li>
+                            <a href="#v0.1.0" class="heading">Version 0.1.0</a>
                         </li>
                     </ul>
                 </div>
