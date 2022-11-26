@@ -245,6 +245,30 @@ extern "C" fn eh_personality() {}
                             <source src="../images/megatiny_hal/attiny412pac_blinky_working.mp4" type="video/mp4">
                         </video>
                     </div>
+
+                    <p class="content">
+                        I then started working on the HAL, and I moved the PAC into its own directory and renamed the lib.rs file to mod.rs. This, however, started getting me a lot of errors.
+                    </p>
+
+                    <img src="../images/megatiny_hal/crateError.jpg" alt="error transitioning from lib to mod">
+
+                    <p class="content">
+                        Now that the PAC wasn't at the root of the crate anymore, its paths got messed up, so I just replaced all the <span class="code">crate::</span> 
+                        elements with either <span class="code">super::</span> or <span class="code">super::super::</span> depending on how far it had to go.
+                    </p>
+
+                    <p class="content">
+                        After doing that, I just wrote the abstractions that you can see in the <a href="https://docs.rs/megatiny_hal/0.1.0/megatiny_hal/"> documentation for this version</a>, and it worked.
+                    </p>
+
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 10%;">
+                        <video width="70%"  controls>
+                            <source src="../images/megatiny_hal/attiny412hal_0.1.0_blinky_working.mp4" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
 
                 <div class="sidebar">
