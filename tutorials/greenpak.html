@@ -113,7 +113,7 @@
                     <p class="content">
                         LUTs, standing for look up table, are the basic logic gates inside the ship. There are 2, 3, and 4 pin input LUTs, each with 1 output. 
                         The output states can be specified for each combination of inputs in the table in the properties by clicking on the cell in the output 
-                        column to toggle the output. There are also options to set it to standard gates like and, not, and or.
+                        column to toggle the output. There are also options to set it to standard gates like and, not, and or among others.
                     </p>
 
                     <h3 class="heading" id="dff">DFF</h3>
@@ -141,6 +141,21 @@
                     </p>
 
                     <h3 class="heading" id="pwm">PWM Modules</h3>
+
+                    <img src="../images/greenpak/pwm.jpg" alt="pwm module">
+
+                    <p class="content">
+                        To enable the PWM module to generate a PWM signal, of course, the power down must be set to ground. The period clock 
+                        is then selected in the properties; this will determine the length of the period and the frequency but not the duty cycle (i.e. 
+                        the proportion of the period spent high). The output PWM signal can be taken from either the OUT+ or OUT- pin depending on if 
+                        it needs to be inverted.
+                    </p>
+
+                    <p class="content">
+                        In addition for more control, the UP/DOWN can be connected to a signal to dynamically change the duty cycle. When connected to something, if it is 
+                        driven low, the duty cycle will go down and vice versa. The KEEP pin can also be used to fix the duty cycle at the current value while 
+                        it is driven high so that the duty cycle won't change no matter what the UP/DOWN pin is driven to.
+                    </p>
 
                     <h3 class="heading" id="comparators">Comparators</h3>
 
