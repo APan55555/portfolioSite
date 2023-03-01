@@ -188,6 +188,24 @@
                     </p>
 
                     <h2 class="subtitle" id="blinky">LED Blink Example</h2>
+
+                    <h3 class="heading">Bare-Bones Blinky</h3>
+
+                    <p class="content">
+                        Let's start this with just a minimal blinky that just blinks without any input control. Since we want a signal to a 
+                        GPIO pin that just oscillates high and low, the most straightforward thing to use is an OSC peripheral, specifically OSC0 
+                        since it has a lower frequency closer to a rate that the human eye can percieve easily. Since there is no clock selector 
+                        for GPIO pins, we need to use an out pin from the oscillator. The oscillator has a frequency of 2048 Hz, so let's apply the max 
+                        prescalar of 64 to the OUT0 pin, which would bring the frequency to 32 Hz, which is still a bit large. The clock to the oscillator 
+                        also has a prescalar, so let's use the max prescalar of 8 for that as well. That brings the frequency to 4 Hz, which is definitely 
+                        visible to the human eye, but we can bring the frequency down even futher.
+                    </p>
+
+                    <img src="../images/greenpak/oscBlinkySetup.jpg" alt="oscillator setup blinky">
+
+                    <p class="content">
+                        One way to use a dff is to further divide a frequency by 2. This can be done by 
+                    </p>
                 </div>
 
                 <div class="sidebar">
