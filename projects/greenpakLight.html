@@ -4,15 +4,12 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Site</title>
+        <title>Megatiny_hal</title>
 
         <!--links font-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
         
         <link rel="stylesheet" href="../css/project.css">
     </head>
@@ -49,162 +46,97 @@
             </header>
             <div class="body">
                 <div class="content">
-                    <h1 class="hero">Greenpak Tutorial</h1>
-                    
-                    <h2 class="subtitle" id="controls">Controls</h2>
-
-                    <p class="content"></p>
-
-                    <h2 class="subtitle" id="components">Components Explained</h2>
-
-                    <h3 class="heading" id="GPIO">GPIO Pins</h3>
-
-                    <img src="../images/greenpak/gpioPin.jpg" alt="gpio pin" style="max-width: 30em">
-
+                    <h1 class="hero">Greenpak Light</h1>
                     <p class="content">
-                        The external input/output connects to the outside of the chip to control input/output devices connected to the chip.
-                        The output enable (OE) defines if the pin is an input or output; it is an input if OE is set to ground and ouput otherwise.
-                        If configured as an input, the signal can be connected to other parts inside the chip through the IN pin (low if ground and high otherwise), and if configured 
-                        as an output, the signal to the outside can be controlled by the OUT pin (low if ground and high otherwise). Additionally, 
-                        the connection and resistance of the pullup resistor can be configured in the properties.
+                        This project involves using a greenpak chip to control an LED with button input. The brightness of the LED needs 
+                        to be precise which means it would ideally have dynamic power control to vary the voltage across the LED according to 
+                        the power through it at any given point in time.
                     </p>
 
-                    <h3 class="heading" id="HV-pins">High Voltage Pins and High Voltage Control</h3>
-
-                    <img src="../images/greenpak/hvctrl.jpg" alt="high voltage control" style="max-width: 35em">
-                    <img src="../images/greenpak/hvpin.jpg" alt="high voltage pin" style="max-width: 40em">
-
+                    <h2 class="subtitle">Version 1</h2>
+                    <h3 class="heading">Button toggling</h3>
                     <p class="content">
-                        The high voltage pins work somewhat similarly to the GPIO pins, but they are controlled through the high voltage 
-                        control module instead of directly, and they can only be used as an output. One thing to note is that by default, the 
-                        output mode of the pin is set as Hi-Z, so to be able to drive it high or low, that must be changed in the properties. 
-                        To allow the pin to be driven, the corresponding sleep must be set to ground while the corresponding output enable (OE) 
-                        must be set to high. Once that's done, the corresponding IN pin can be used to control the output.
+                        Starting with getting the input to toggle the LED on and off, it needs something to hold the state of the LED 
+                        and change to the opposite state with each button press. This can be done by using a dff and connecting its output 
+                        to its data with an inversion. This makes it so that the next state once the clock pulses will always be opposite 
+                        the current one, and dffs will hold the state until the next clock pulse. Normally, the button input would be connected 
+                        to the clock after using a delay to account for debounce, but for testing, I used the out of an oscillator instead.
                     </p>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/dffToggle.jpg" alt="configuration for dff toggling led">
+                    </div>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/dffToggleSim.jpg" alt="simulation for dff toggling led">
+                    </div>
                     <p class="content">
-                        Additionally, it can be set to full bridge mode (the default is half bridge). With this, the output enable pins 
-                        become disabled, so all that needs to be done to then control the output is to pull the corresponding SLEEP pins to ground. 
-                        Also, the DIFF + and - pins are used for the differential amplifier with integrator and comparator and cannot be manually 
-                        connected to anything.
+                        To prepare to control the brightness of the output later, I added a pwm module to this with an arbitrary duty cycle for testing. 
+                        To get the dff output to toggle the output with the pwm module, an LUT must be used as an and gate.
                     </p>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/pwmDffToggle.jpg" alt="configuration for dff toggling led">
+                    </div>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/pwmDffToggleSim.jpg" alt="simulation for dff toggling led">
+                    </div>
 
-                    <h3 class="heading" id="osc">Oscillators</h3>
-
-                    <img src="../images/greenpak/osc.jpg" alt="oscillator" style="max-width: 40em">
-
+                    <h2 class="subtitle">Version 2</h2>
+                    <h3 class="heading">Testing the Differential Amplifier with Integrator and Comparator</h3>
                     <p class="content">
-                        The oscillator will have a constant clock pulse that has equal time high and low. It has multiple prescalars to 
-                        get different frequencies from the same clock, and each one divides the frequency of the clock by a certain amount. 
-                        For example, with a prescalar of 4, it would only have a pulse every 4 clock pulses of the original, thus having a 
-                        quarter the frequency. The power down pin has to be set to ground for the oscillator to be activated. The OUT pin 
-                        can be manually connected to other parts of the matrix with a prescalar defined in properties while the other pins can only be connected by selecting them 
-                        in the properties of other modules. The oscillator can also be configured to auto power on or force power on. With 
-                        auto power on, it will only turn on if the power down pin is set to ground, AND one of the modules connected to 
-                        one of the orange pins is actively using it; it will not turn on if something connecting to the OUT pin needs it. 
-                        With force power on, it will turn on whenever the power down pin is set to ground. It is recommended to use auto power on 
-                        to minimize power consumption and to only use force power on in testing and when absolutely necessary.
+                        Looking at the datasheet, I found that the differential amplifier with integrator and comparator needed to have the 
+                        high voltage control configured to full bridge instead of half bridge. After doing that and connecting the inverted output 
+                        to the up/down of the pwm module, it worked quite well.
                     </p>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/integratorTest.jpg" alt="configuration for dff toggling led">
+                    </div>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/integratorTestSim.jpg" alt="simulation for dff toggling led">
+                    </div>
 
-                    <h3 class="heading" id="lut">LUT</h3>
-
-                    <img src="../images/greenpak/lut.jpg" alt="3 bit lut">
-
+                    <h3 class="heading">Adding the Integrator</h3>
                     <p class="content">
-                        LUTs, standing for look up table, are the basic logic gates inside the ship. There are 2, 3, and 4 pin input LUTs, each with 1 output. 
-                        The output states can be specified for each combination of inputs in the table in the properties by clicking on the cell in the output 
-                        column to toggle the output. There are also options to set it to standard gates like and, not, and or among others.
+                        Adding this to the previous toggle circuit allows for the light to be toggled and have 
+                        stable power while on.
                     </p>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/toggleIntegrator.jpg" alt="configuration for dff toggling led">
+                    </div>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/toggleIntegratorSim.jpg" alt="simulation for dff toggling led">
+                    </div>
 
-                    <h3 class="heading" id="dff">DFF</h3>
-
-                    <img src="../images/greenpak/dff2.jpg" alt="dff from 2 bit lut" style="max-width: 45em;">
-                    <img src="../images/greenpak/dff3.jpg" alt="dff from 3 bit lut" style="max-width: 45em;">
-                    
-                    <p class="content">
-                        Mostly, DFFs, standing for data flip flop, come from the LUTs by changing the type in its properties. Generally, the simpler top DFF comes from the 
-                        2 bit LUT while the bottom one comes from the 3 bit LUT. The DFF will hold a constant output (Q) until the CLK line pulses 
-                        (goes from low to high). Each time it pulses, the DFF will update its output (Q) to be equal to the data input line (D) until 
-                        the CLK line pulses again.
-                    </p>
-                    <p class="content">
-                        In the properties, a number of things can be configured. One of the most notable is the option to invert the output, making 
-                        it so that the output (Q) would instead be set to the opposite of the data input (D) at each clock pulse. Note that this would 
-                        also make it so that the initial state would be high since it would invert the initial low state of the uninverted output. The 
-                        initial polarity can also be changed to high to make the output high at startup.
-                    </p>
-                    <p class="content">
-                        The bottom DFF has an additional nRESET pin. By default, whenever that pin is driven low, it will reset the output to its initial state, which, 
-                        as mentioned above, can be changed in the properties. In the properties, the active level for RST/SET can be changed to high to make it 
-                        reset when the nRESET pin is set to high instead of low while the nSET/nRESET option can be changed to nSET to instead set the output to 
-                        opposite the initial polarity.
-                    </p>
-
-                    <h3 class="heading" id="pwm">PWM Modules</h3>
-
-                    <img src="../images/greenpak/pwm.jpg" alt="pwm module">
-
-                    <p class="content">
-                        To enable the PWM module to generate a PWM signal, of course, the power down must be set to ground. The period clock 
-                        is then selected in the properties; this will determine the length of the period and the frequency but not the duty cycle (i.e. 
-                        the proportion of the period spent high). The output PWM signal can be taken from either the OUT+ or OUT- pin depending on if 
-                        it needs to be inverted.
-                    </p>
-
-                    <p class="content">
-                        In addition for more control, the UP/DOWN can be connected to a signal to dynamically change the duty cycle. When connected to something, if it is 
-                        driven low, the duty cycle will go down and vice versa. The KEEP pin can also be used to fix the duty cycle at the current value while 
-                        it is driven high so that the duty cycle won't change no matter what the UP/DOWN pin is driven to.
-                    </p>
-
-                    <h3 class="heading" id="comparators">Comparators</h3>
-
-                    <img src="../images/greenpak/comparator.jpg" alt="comparator" style="max-width: 30em">
-
-                    <p class="content">
-                        These work in the same way as every other comparator; if the input voltage is higher than the reference voltage, it outputs high and low otherwise. 
-                        For these, the reference voltage is the IN- pin and is configured in properties, and the input is the IN+ pin. Of course, also PWR UP needs to be set 
-                        to high for the comparator to be enabled. Additionally in properties, a gain can also be set in order to get a higher range of effective reference voltages while 
-                        sacrificing precision. 
-                    </p>
-
-                    <h3 class="heading" id="delay-count">Delays and Counters</h3>
-
-                    <img src="../images/greenpak/delay.jpg" alt="delay counter">
-
-                    <p class="content">
-                        The delay counter will take an input signal and delay some amount before changing the output to match it. 
-                        Whenever the input signal changes, however, even before the output updates, the counter will be reset, so 
-                        it can also be used to filter out signals shorter than the delay time.
-                    </p>
-                    <p class="content">
-                        There are a variety of different properties that can be editted. Changing the counter data increases the number of clock cycles 
-                        of delay there are, so if the counter data is 10, and the clock frequency is 1 kHz (1 pulse every millisecond), then the delay would 
-                        be 10 milliseconds. The edge mode select can also be adjusted to choose only high or low signals to delay. If set to rising edge, it 
-                        will only delay changes of the input from low to high, and the output will instantly change to low when the input changes to low. The 
-                        opposite is true for falling edge, and for both edges, it will delay all changes. The output can also be inverted in the properties. 
-                        The clock source can also be changed to get different scales of times, and it can also be set as external from matrix to connected it 
-                        to any signal in the chip.
-                    </p>
-
-                    <h2 class="subtitle" id="blinky">LED Blink Example</h2>
-
-                    <h3 class="heading">Bare-Bones Blinky</h3>
-
-                    <p class="content">
-                        Let's start this with just a minimal blinky that just blinks without any input control. Since we want a signal to a 
-                        GPIO pin that just oscillates high and low, the most straightforward thing to use is an OSC peripheral, specifically OSC0 
-                        since it has a lower frequency closer to a rate that the human eye can percieve easily. Since there is no clock selector 
-                        for GPIO pins, we need to use an out pin from the oscillator. The oscillator has a frequency of 2048 Hz, so let's apply the max 
-                        prescalar of 64 to the OUT0 pin, which would bring the frequency to 32 Hz, which is still a bit large. The clock to the oscillator 
-                        also has a prescalar, so let's use the max prescalar of 8 for that as well. That brings the frequency to 4 Hz, which is definitely 
-                        visible to the human eye, but we can bring the frequency down even futher.
-                    </p>
-
-                    <img src="../images/greenpak/oscBlinkySetup.jpg" alt="oscillator setup blinky">
-
-                    <p class="content">
-                        One way to use a dff is to further divide a frequency by 2. This can be done by 
-                    </p>
                 </div>
 
                 <div class="sidebar">
@@ -212,39 +144,6 @@
                         Contents
                     </h3>
                     <ul class="contents">
-                        <li>
-                            <a href="#controls" class="subtitle">Controls</a>
-                        </li>
-                        <li>
-                            <a href="#components" class="subtitle">Components Explained</a>
-                        </li>
-                        <li>
-                            <a href="#GPIO" class="heading">GPIO Pins</a>
-                        </li>
-                        <li>
-                            <a href="#HV-pins" class="heading">High Voltage Pins</a>
-                        </li>
-                        <li>
-                            <a href="#osc" class="heading">Oscillators</a>
-                        </li>
-                        <li>
-                            <a href="#lut" class="heading">LUT</a>
-                        </li>
-                        <li>
-                            <a href="#dff" class="heading">DFF</a>
-                        </li>
-                        <li>
-                            <a href="#pwm" class="heading">PWM Modules</a>
-                        </li>
-                        <li>
-                            <a href="#comparators" class="heading">Comparators</a>
-                        </li>
-                        <li>
-                            <a href="#delay-count" class="heading">Delays and Counters</a>
-                        </li>
-                        <li>
-                            <a href="#blinky" class="subtitle">LED Blink Example</a>
-                        </li>
                     </ul>
                 </div>
             </div>
