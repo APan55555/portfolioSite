@@ -137,6 +137,115 @@
                         <img src="../images/greenpakLight/toggleIntegratorSim.jpg" alt="simulation for dff toggling led">
                     </div>
 
+                    <h3 class="heading">Adding Auto Turn Off</h3>
+                    <p class="content">
+                        Adding a delay to the dff output going to the reset makes it so that after it turns on, it will reset the dff after some delay. This 
+                        also means that the delay would have to be rising edge so that the dff turning off would immediately undo the reset allowing the state to 
+                        be changed.
+                    </p>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/autoTurnOff.jpg" alt="simulation for dff toggling led">
+                    </div>
+
+                    <h2 class="subtitle">Version 3</h2>
+                    <h3 class="heading">Adding Half Power State</h3>
+                    <p class="content">
+                        Using 2 dffs with the output of each going to the input of the other with one inverted to store the state of the light will allow 4 states to be stored, so one has to be eliminated. This makes the dff from the 
+                        3-bit lut necessary to reset the invalid state to a valid one. This, of course, can be done with a 2 bit lut. 
+                    </p>
+                    <p class="content">
+                        The states can easily be set by putting the 2 dffs and the output of the full and half power states into a lut. The problem is that the 
+                        half state would make the integrator think that the power wasn't enough, which would drive the half state back up to full. This means that 
+                        somehow, the pwm would have to stop changing its duty cycle, which can be done by setting the keep pin of the pwm, which prevents the pwm 
+                        duty cycle from changing. This, of course, assumes that the light would be at the full power state long enough for it to stabilize at the proper 
+                        duty cycle, which it can do in just a couple milliseconds, so it is a reasonable assumption to have in practice. To actually get the half power state, 
+                        there would have to be a way to filter out every other high pulse of the pwm, which can be done by putting it to the clock pin of a dff with an inverted 
+                        output going to its input. This would produce a clock signal that is half the frequency of the pwm, but it would continue to be high until the next pulse, so 
+                        to get a half signal, it would have to be put through an and gate with the original pwm so that the first high pulse of the pwm would toggle the dff on and 
+                        produce a high signal of the and gate, but the next pulse would toggle it low, which would then produce a low signal, and this repeats, which is the desired result.
+                    </p>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/halfPower.jpg" alt="configuration for adding half power">
+                    </div>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/halfPowerSim.jpg" alt="simulation for adding half power">
+                    </div>
+
+                    <h3 class="heading">Decreasing Off State Power Consumption</h3>
+                    <p class="content">
+                        While the previous design does work, oftentimes it would be running modules that are unneeded in that state, which unnecessarily increases power 
+                        consumption. For example, the integrator does not need to be running except in the full power state since only in that state will the output 
+                        of the integrator be changing the duty cycle of the pwm module. Thus, the off state power consumption can be decreased by conditionally disabling the 
+                        integrator in all states it is not used. This can also be done for many of the other modules with the following result.
+                    </p>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/lowPower.jpg" alt="configuration for decreasing power consumption">
+                    </div>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/lowPowerSim.jpg" alt="simulation for decreasing power consumption">
+                    </div>
+
+                    <h2 class="subtitle">Version 4</h2>
+                    <h3 class="heading">Removing the Integrator</h3>
+                    <p class="content">
+                        It was determined that the control precision of the integrator was not necessary and that the power consumption needed to be decreased further, so 
+                        I removed the integrator, and because of this, I could also removed the pwm module since there was no need for any control of the duty cycle anymore. 
+                        Full power was now just a constant high signal while half power came from an oscillator signal. I used an out pin of OSC0 instead of OSC1 since both 
+                        are fast enough to not be percieved by the human eye, but OSC0 would also be used for the auto turn off delay, so using it would decrease power consumption.
+                    </p>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/v4.jpg" alt="configuration for version 4">
+                    </div>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/v4sim.jpg" alt="simulation for version 4">
+                    </div>
+
+                    <h3 class="heading">Using a New Chip</h3>
+                    <p class="content">
+                        A different Greenpak chip, which has less capabilities, could now be used since the integrator was no longer needed. The SLG46117V is cheaper 
+                        and has less power consumption, so it would be better to use. Most of the configuration from before could directly be transferred over, but 
+                        the delay counters cannot produce an inverted output by altering the properties, so a separate inverter has to be used. Also, the predividers 
+                        of the oscillator are smaller, so a long delay isn't possible by directly putting the clock into the delay counter clock. Instead, I created 
+                        a slower clock signal by using another delay with the output inverted back to itself detecting both edges, which would produce a clock signal 
+                        directly proportional to the delay of the counter. This slower clock signal would then be connected to the clock pin of the delay counter for 
+                        the auto turn off to be able to get to the same delay as before. Unfortunately, this chip does not have simulation support, so enjoy the configuration 
+                        with the dffs driven by an input pin with a delay counter accounting for button debounce instead of the test oscillator.
+                    </p>
+                    <div style="text-align:center;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    margin-right: 5%;
+                    margin-left: 5%;">
+                        <img src="../images/greenpakLight/newChip.jpg" alt="configuration for new chip">
+                    </div>
                 </div>
 
                 <div class="sidebar">
