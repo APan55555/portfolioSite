@@ -186,9 +186,11 @@
                         to any signal in the chip.
                     </p>
 
-                    <h2 class="subtitle" id="blinky">LED Blink Example</h2>
+                    <h2 class="subtitle" id="blinky">Blinky Example</h2>
 
-                    <h3 class="heading">Bare-Bones Blinky</h3>
+                    <p class="content">Downloads: <a href="../files/greenpak/boardFiles.zip">PCB board</a>, <a href="../files/greenpak/blinky.zip">Blinky configuration</a></p>
+
+                    <h3 class="heading">Designing the Circuit Configuration</h3>
 
                     <p class="content">
                         Let's start this with just a minimal blinky that just blinks without any input control. Since we want a signal to a 
@@ -203,8 +205,32 @@
                     <img src="../images/greenpak/oscBlinkySetup.jpg" alt="oscillator setup blinky">
 
                     <p class="content">
-                        One way to use a dff is to further divide a frequency by 2. This can be done by 
+                        One way to use a dff is to further divide a frequency by 2. This can be done by setting the properties to invert the output and putting 
+                        it back to the data input with the clock output as the oscillator output. The output of the dff would then have the half frequency to be 
+                        connected to the output pin to get the half frequency to get the blinky working.
                     </p>
+
+                    <img src="../images/greenpak/dffPropertiesAndBlinky.jpg" alt="dff properties and full blinky configuration">
+
+                    <h3 class="heading">Emulation with Greenpak Advanced Dev Board</h3>
+                    
+                    <p class="content">
+                        After connecting the dev board to your PC via USB, use jumper wires to connect the SDA, SCL, PWR, and GND of the dev board and the 
+                        greenpak chip together according to the diagram/picture below.
+                    </p>
+
+                    <img src="../images/greenpak/devConnections.svg" alt="Diagram of connections to dev board">
+                    <img src="../images/greenpak/devConnections.jpg" alt="Picture of connections to dev board">
+
+                    <p class="content">
+                        Next open the debug panel in the top menue and select the GreenPAK Advance Development Platform, and hit emulate. You can also change 
+                        the emulation to emulation (sync) which will update the configuration of the chip in real time as changes are made rather than needing to 
+                        start and stop normal emulation for each change to the configuration.
+                    </p>
+                    
+                    <video width="100%"  controls>
+                        <source src="../../images/greenpak/blinky.mp4" type="video/mp4">
+                    </video>                      
                 </div>
 
                 <div class="sidebar">
