@@ -256,6 +256,11 @@ footer {
     }
 }
 
+.pdf {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+}
+
 @media screen and (min-width: 680px) {
     h1.hero {
         font-size: 3.2rem;

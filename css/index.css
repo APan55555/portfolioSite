@@ -225,6 +225,11 @@ footer a {
   border-bottom-style: rgb(180, 180, 180);
 }
 
+.pdf {
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+
 @media screen and (min-width: 680px) {
   h1.hero {
     font-size: 3.2rem;
@@ -305,7 +310,6 @@ footer a {
   }
   .container.about .sidebar {
     float: left;
-    position: -webkit-sticky;
     position: sticky;
     max-height: calc(95vh - 9em);
     margin-bottom: 2em;
@@ -335,7 +339,6 @@ footer a {
     width: 40em;
   }
   .content.projects .sidebar.feed {
-    position: -webkit-sticky;
     position: sticky;
     top: 15vh;
     max-height: calc(85vh - 9em);
